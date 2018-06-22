@@ -67,7 +67,8 @@ module.exports = {
       var themes = {
         bootstrap3:require('./themes/bootstrap3'),
         bootstrap4:require('./themes/bootstrap4'),
-        bulma:require('./themes/bulma')    
+        bulma:require('./themes/bulma'),
+        semantic:require('./themes/semantic'),
       }
       
       if (typeof themes[this.opts.theme]===undefined) {

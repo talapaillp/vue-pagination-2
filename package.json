@@ -1,15 +1,16 @@
 {
   "name": "vue-pagination-2",
-  "description": "Vue.js 2 pagination component",
+  "description": "Vue.js 2 pagination component (with Semantic UI html structure)",
   "version": "1.6.2",
   "keywords": [
     "pagination",
     "vuejs2",
-    "bootstrap"
+    "bootstrap",
+    "vue-tables-2"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/matfish2/vue-pagination-2"
+    "url": "https://github.com/talapaillp/vue-pagination-2"
   },
   "files": [
     "compiled",
