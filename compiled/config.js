@@ -8,7 +8,7 @@ exports.default = function () {
     return {
         format: true,
         chunk: 10,
-        chunksNavigation: 'fixed',
+        chunksNavigation: 'scroll',
         edgeNavigation: false,
         theme: 'semantic',
         texts: {

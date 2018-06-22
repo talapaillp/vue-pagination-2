@@ -95,7 +95,7 @@ module.exports = function () {
               value: this.totalPages > 1
             }],
 
-            'class': theme.list + ' VuePagination__pagination' },
+            'class': ' ui menu pagination ' + theme.list + ' VuePagination__pagination' },
           [firstPage, prevChunk, h(
             'a',
             { 'class': 'VuePagination__pagination-item ' + theme.item + ' ' + theme.prev + ' VuePagination__pagination-item-prev-page ' + this.allowedPageClass(this.page - 1),
