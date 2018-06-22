@@ -22,7 +22,7 @@ Simple, generic and non-intrusive pagination component for Vue.js version 2.
 # Dependencies
 
 * Vue.js (>=2.0.0-rc.1). Required.
-* CSS: Bootstrap 3 or Bootstrap 4 or Bulma.
+* CSS: Bootstrap 3 or Bootstrap 4 or Bulma or Semantic UI.
 
 # Installation
 
@@ -72,7 +72,7 @@ props:
   * `chunksNavigation` `string` Which method to use when navigating outside chunks boundries. Default: `fixed`. Options are:  
     * `scroll` - the range of pages presented will incrementally change when navigating to a page outside the chunk (e.g 1-10 will become 2-11 once the user presses the next arrow to move to page 11). 
     * `fixed` - navigation will occur between fixed chunks (e.g 1-10, 11-20, 21-30 etc.). Double arrows will be added to allow navigation to the beginning of the previous or next chunk. 
-  * `theme` `string` CSS theme used for styling. Supported: `bootstrap3`, `bootstrap4`,`bulma`. Default: `bootstrap3`.
+  * `theme` `string` CSS theme used for styling. Supported: `bootstrap3`, `bootstrap4`,`bulma`, `semantic`. Default: `semantic`.
   * `format` `boolean` Format numbers using a separating comma. Default: `true`
   * `edgeNavigation` Show links to first and last pages. Default: `false`
   * `texts` `object` `optional` 

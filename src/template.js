@@ -9,75 +9,59 @@ module.exports = function() {
     var lastPage = '';
     var items = this.pages.map(function(page) {
       
-      return <li class={`VuePagination__pagination-item ${theme.item} ${this.activeClass(page)}`}
-      onClick={this.setPage.bind(this, page)}>
-      <a class={`${theme.link} ${this.activeClass(page)}`} 
+      return <a class={`VuePagination__pagination-item ${theme.item} ${this.activeClass(page)}`} 
+      onClick={this.setPage.bind(this, page)}
       href="javascript:void(0)"
       role="button">{page}</a>
-      </li>
       
     }.bind(this));
     
     
     if (this.opts.edgeNavigation && this.totalChunks > 1) {
-      firstPage = <li class={`VuePagination__pagination-item ${theme.item} ${this.page===1?theme.disabled:''} VuePagination__pagination-item-prev-chunk`}
-      onClick={this.setPage.bind(this, 1)}>
-      <a class={theme.link} 
+      firstPage = <a class={`VuePagination__pagination-item ${theme.item} ${this.page===1?theme.disabled:''} VuePagination__pagination-item-prev-chunk`}
+      onClick={this.setPage.bind(this, 1)}
       href="javascript:void(0);"
-      disabled={this.page===1}>{this.opts.texts.first}</a>
-      </li>
+      disabled={this.page===1}>{this.opts.texts.first}</a>;
       
-      lastPage = <li class={`VuePagination__pagination-item ${theme.item} ${this.page===this.totalPages?theme.disabled:''} VuePagination__pagination-item-prev-chunk`}
-      onClick={this.setPage.bind(this, this.totalPages)}>
-      <a class={theme.link} 
+      lastPage = <a class={`VuePagination__pagination-item ${theme.item} ${this.page===this.totalPages?theme.disabled:''} VuePagination__pagination-item-prev-chunk`}
+      onClick={this.setPage.bind(this, this.totalPages)}
       href="javascript:void(0);"
-      disabled={this.page===this.totalPages}>{this.opts.texts.last}</a>
-      </li>
+      disabled={this.page===this.totalPages}>{this.opts.texts.last}</a>;
     }
     
     if (this.opts.chunksNavigation==='fixed') {
-      
-      prevChunk =  <li class={`VuePagination__pagination-item ${theme.item} ${theme.prev} VuePagination__pagination-item-prev-chunk ${this.allowedChunkClass(-1)}`}
-      onClick={this.setChunk.bind(this,-1)}>
-      <a class={theme.link} 
+      prevChunk = <a class={`VuePagination__pagination-item ${theme.item} ${theme.prev} VuePagination__pagination-item-prev-chunk ${this.allowedChunkClass(-1)}`}
+      onClick={this.setChunk.bind(this,-1)}
       href="javascript:void(0);"
-      disabled={!!this.allowedChunkClass(-1)}>&lt;&lt;</a>
-      </li>
+      disabled={!!this.allowedChunkClass(-1)}><i class='angle double left icon'></i></a>;
       
-      nextChunk = <li class={`VuePagination__pagination-item ${theme.item} ${theme.next} VuePagination__pagination-item-next-chunk ${this.allowedChunkClass(1)}`}
+      nextChunk = <a  class={`VuePagination__pagination-item ${theme.item} ${theme.next} VuePagination__pagination-item-next-chunk ${this.allowedChunkClass(1)}`}
       onClick={this.setChunk.bind(this,1)}
-      >
-      <a class={theme.link} 
       href="javascript:void(0);"
-      disabled={!!this.allowedChunkClass(1)}>&gt;&gt;</a>
-      </li>;
+      disabled={!!this.allowedChunkClass(1)}><i class='angle double right icon'></i></a>;
       
     }
     
     
     return <div class={`VuePagination ${theme.wrapper}`}><nav class={`${theme.nav}`}>
-    <ul v-show={this.totalPages>1}
-    class={`${theme.list} VuePagination__pagination`}>
+    <div v-show={this.totalPages>1}
+    class={` ui menu pagination ${theme.list} VuePagination__pagination`}>
     {firstPage}
-    {prevChunk} 
-    <li class={`VuePagination__pagination-item ${theme.item} ${theme.prev} VuePagination__pagination-item-prev-page ${this.allowedPageClass(this.page-1)}`}
-    onClick={this.prev.bind(this)}>
-    <a class={theme.link} 
+    {prevChunk}
+    <a class={`VuePagination__pagination-item ${theme.item} ${theme.prev} VuePagination__pagination-item-prev-page ${this.allowedPageClass(this.page-1)}`}
+    onClick={this.prev.bind(this)}
     href="javascript:void(0);"
     disabled={!!this.allowedPageClass(this.page-1)} 
-    >&lt;</a>
-    </li>
+    ><i class='angle left icon'></i></a>
     {items}
-    <li class={`VuePagination__pagination-item ${theme.item} ${theme.next} VuePagination__pagination-item-next-page ${this.allowedPageClass(this.page+1)}`}
-    onClick={this.next.bind(this)}>
-    <a class={theme.link} 
+    <a class={`VuePagination__pagination-item ${theme.item} ${theme.next} VuePagination__pagination-item-next-page ${this.allowedPageClass(this.page+1)}`}
+    onClick={this.next.bind(this)}
     href="javascript:void(0);"
     disabled={!!this.allowedPageClass(this.page+1)} 
-    >&gt;</a>
-    </li>
+    ><i class='angle right icon'></i></a>
     {nextChunk}
     {lastPage}
-    </ul>
+    </div>
     <p v-show={parseInt(this.records)}
     class={`VuePagination__count ${theme.count}`}>{this.count}</p>
     </nav>
